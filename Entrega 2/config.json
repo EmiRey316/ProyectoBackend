@@ -1,0 +1,7 @@
+{
+    "port": "8080",
+    "database": {
+        "engine": "MongoDB",
+        "name": "MongoDB"
+    }
+}
