@@ -1,0 +1,36 @@
+<div class="classicDiv">
+    <h1 class="mb-2">Registro de Usuario</h1>
+    <form action="/signUp" method="post" enctype="multipart/form-data">
+        <label for="name" class="form-label">Nombre:</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="John Doe" required>
+        
+        <label for="username" class="form-label">Email:</label>
+        <input type="email" name="username" id="username" class="form-control" placeholder="mail@example.com" required>
+        
+        <label for="password" class="form-label">Contraseña:</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        
+        <label for="address" class="form-label">Dirección:</label>
+        <input type="text" name="address" id="address" class="form-control" placeholder="Street 1234" required>
+        
+        <label for="birthday" class="form-label">Fecha de nacimiento:</label>
+        <input type="date" name="birthday" id="birthday" class="form-control" min="1920-01-01" max="2021-12-31" required>
+        
+        <label for="phone" class="form-label">Teléfono:</label>
+        <div>
+            <select type="select" name="countryCode" id="countryCode" class="form-control" required>
+                <option value="+598">URU: +598</option>
+            </select>
+            <input type="tel" name="phone" id="phone" class="form-control" placeholder="9812345678" required>
+        </div>
+        
+        <label for="avatar" class="form-label mt-3">Foto o avatar:</label>
+        <input type="file" name="avatar" id="avatar" class="form-control" placeholder="" required>
+
+        <button type="submit" class="btn btn-success mt-3">Enviar</button>
+    </form>
+
+    <hr>
+
+    <p>Ya estás registrado? <a href="/login">Login</a></p>
+</div>

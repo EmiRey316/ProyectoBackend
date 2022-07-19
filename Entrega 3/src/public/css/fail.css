@@ -1,0 +1,11 @@
+#failDiv {
+    background-color: rgb(231, 66, 66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#failText {
+    color: white;
+    font-size: large;
+}
