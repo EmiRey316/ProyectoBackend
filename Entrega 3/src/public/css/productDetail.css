@@ -1,0 +1,22 @@
+#itemDetailContainer {
+    display: flex;
+    background-color: rgb(230, 227, 227);
+    margin: 10% 5%;
+}
+
+#itemDetailImgContainer {
+    width: 50%;
+    height: auto;
+    margin: 5%;
+}
+
+#itemDetailImage{
+    width: 100%;
+    height: auto;
+}
+
+#itemDetails {
+    width: 100%;
+    margin: 5%;
+    justify-self: center;
+}

@@ -13,19 +13,22 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-end me-3" id="navbarNav">
-                <ul class="navbar-nav row justify-content-end text-center">
-                    <li class="nav-item col-3">
-                        <a class="nav-link text-black" href="/productsList">Productos</a>
+                <ul class="navbar-nav row justify-content-end text-center align-middle">
+                    <li class="nav-item col-4 dropdown align-middle">
+                        <a class="nav-link text-black dropdown-troggle align-middle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/products">Listado</a></li>
+                            <li><a class="dropdown-item" href="/products/create">Crear</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item col-3">
-                        <a class="nav-link text-black" href="/info">Info</a>
+                    <li class="nav-item col-4">
+                        <a class="nav-link text-black" href="/cart">Carrito</a>
                     </li>
-                    <li class="nav-item col-3">
-                        <a class="nav-link text-black" href="/randoms">Randoms</a>
-                    </li>
+
                     {{#if name}}
-                        <li class="nav-item col-3 dropdown">
+                        <li class="nav-item col-4 dropdown">
                             <a class="nav-link text-black dropdown-troggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="rounded-circle" width="25%" src={{concat "/Storage/" avatar}} alt="Avatar">
                                 <strong id="userName">{{name}}</strong>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

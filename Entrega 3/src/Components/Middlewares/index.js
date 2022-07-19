@@ -4,7 +4,7 @@ const CartsDao = require("../../Container/DAOs/cart");
 
 
 //Valida que el usuario haya inciado sesión.
-const validateSession = (req, res, next) => {
+const validateSession = async (req, res, next) => {
     if(!req.isAuthenticated()) return res.redirect("/login");
     next();
 }
@@ -24,8 +24,8 @@ const consoleLogger = (req, res, next) => {
 
 
 //Middleware de validación de usuario administrador
-const validateUser = (req, res, next) => {
-    const user = req.user;
+const validateUser = async (req, res, next) => {
+    const user = await req.user;
     if(user.role != "admin") return res.status(401).send({error: -1, descripcion: `Ruta ${req.originalUrl} con método ${req.method} no autorizada para tu rol.`})
     next();
 }

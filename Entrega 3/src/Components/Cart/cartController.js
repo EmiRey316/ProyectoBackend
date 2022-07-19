@@ -10,7 +10,7 @@ class Cart {
             const user = await req.user;
             await CartsDao.save({user: user.id , products: []})
         } catch (error) {
-            logger.error("Error al hacer login", {error})
+            logger.error("Error al crear carrito", {error})
         }
     }
 

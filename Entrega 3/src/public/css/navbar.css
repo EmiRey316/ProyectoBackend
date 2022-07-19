@@ -1,6 +1,6 @@
 /*Estilos para el menú superior o navegador del sitio*/
 #App-header {
-    background-color: rgb(62, 153, 232);
+    background-color: #FFC20E;
     border-bottom: solid 3px #A5ACAF;
     margin-bottom: 50px;
     width: 100%;
@@ -29,5 +29,5 @@
 }
 
 .dropdown-menu {
-    background-color: rgb(30, 110, 180) !important;
+    background-color: #FFC20E !important;
 }

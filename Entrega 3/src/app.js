@@ -1,6 +1,7 @@
 const handlebars = require("express-handlebars");
+const hbs = require("handlebars");
 
-const { app, server } = require("./server.js");
+const { app } = require("./server.js");
 const Routes = require("./Routes");
 
 
@@ -14,6 +15,11 @@ Routes(app);
 app.engine("handlebars", handlebars.engine());
 app.set("views", __dirname+"/Views");
 app.set("view engine", "handlebars");
+
+hbs.registerHelper("concat", function(pathInit, pathEnd) {
+    return pathInit + pathEnd;
+});
+
 
 
 // ////////////////////////////////////////////

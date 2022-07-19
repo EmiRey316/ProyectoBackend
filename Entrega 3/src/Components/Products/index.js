@@ -6,6 +6,7 @@ const { validateSession, validateProductId, validateUser } = require("../Middlew
 let productsRouter = express.Router();
 
 productsRouter.get("/", validateSession, productsController.getAllProducts);
+productsRouter.get("/create", validateSession, validateUser, productsController.getCreateProduct)
 productsRouter.get("/:pid", validateSession, validateProductId, productsController.getProductById);
 productsRouter.post("/", validateSession, validateUser, productsController.createProduct);
 productsRouter.put("/:pid", validateSession, validateUser, validateProductId, productsController.editProduct);

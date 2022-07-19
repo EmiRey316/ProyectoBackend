@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const { logger } = require("../Utils/logger")
 
@@ -12,8 +13,8 @@ module.exports = class MongoDB {
 
     read = async() => {
         try {
-            let content = await this.model.find({}, {_id: 0, __v: 0});
-            if(content.length == 0) return {}
+            //lean() permite usar correctamente el this.key de un objeto en Handlebars, sin eso da error. 
+            let content = await this.model.find({}, {_id: 0, __v: 0}).lean();
             return content
         } catch(error) {
             logger.error("No se pudo hacer lectura de la base", {error})
@@ -30,7 +31,8 @@ module.exports = class MongoDB {
                 id = lastId[0].id + 1;
             }
 
-            await this.model.create({id, ...record});
+            const timestamp = moment().format('DD MM YYYY, hh:mm:ss')
+            await this.model.create({id, createdAt: timestamp, ...record});
             return id;
         } catch(error) {
             logger.error("No se pudo guardar en base", {error})
@@ -44,6 +46,37 @@ module.exports = class MongoDB {
             logger.error("No se pudo buscar al usuario en base", {error})
         }
     }
+
+    //Método que verifica si existe id y retorna el index.
+    exist = async(id) => {
+        try {
+            return await this.model.findOne({id: id})
+        } catch(err) {
+            console.log("Error al buscar id", err);
+            return "Error al buscar id";
+        }
+    }
+    
+    //Retorna el valor que tiene id requerido, o -1 si no se encuentra.
+    getRecord = async(id) => {
+        try {
+            return await this.model.findOne({id: id}, {}, {_id: 0, __v: 0}).lean();
+        } catch(err) {
+            console.log("Error al buscar registro", err);
+            return "Error al buscar registro";
+        }
+    }
+    
+    //Elimina del archivo el registro indicado por id.
+    deleteRecord = async(id) => {
+        try {
+            await this.model.deleteOne({id: id});
+        } catch(err) {
+            console.log("No se pudo borrar el registro", err);
+            return "No se pudo borrar el registro";
+        }
+    }
+    
 
     deleteAll = async() => {
         try {

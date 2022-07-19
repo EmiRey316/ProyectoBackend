@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/products.css">
+
+
+{{> navbar}}
+
+
+<h1 class="text-center my-3">Vista de Productos</h1>
+
+<div id="itemListContainer">
+    {{#if productsList}}
+
+        {{#each productsList}}
+            <div id="itemContainer" class="border border-dark rounded card text-center animate__animated animate__zoomIn">
+                <div id="itemTitleContainer" class="card-header">
+                    <h4>{{this.title}}</h4>
+                </div>
+                <div id="itemImageContainer" class="card-body">
+                    <img class="card-img my-auto" src={{this.thumbnail}} alt={{this.description}}/>
+                    <div>
+                        {{#unless this.stock}}
+                            <p class="card-text bg-danger rounded">Sin stock</p>  
+                        {{/unless}}
+                    </div>
+                </div>
+                <div id="itemDescriptionContainer" class="card-footer">
+                    <p>USD {{this.price}}</p>
+                    <a href={{concat "products/" this.id}}>
+                        <button class="btn btn-secondary">Ver producto</button>
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+
+    {{else}}
+
+        <div id="productListEmpty" class="text-center rounded mx-auto">
+            <p class="p-3">No se encontraron productos</p>
+        </div>
+
+    {{/if}}
+</div>
