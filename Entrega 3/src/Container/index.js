@@ -41,7 +41,7 @@ module.exports = class MongoDB {
 
     findById = async(id) => {
         try {
-            return await this.model.findOne({id: id});
+            return await this.model.findOne({id: id}, {_id: 0, __v: 0});
         } catch (error) {
             logger.error("No se pudo buscar al usuario en base", {error})
         }

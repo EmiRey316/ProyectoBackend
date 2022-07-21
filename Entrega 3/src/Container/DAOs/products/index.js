@@ -1,7 +1,8 @@
 const moment = require("moment")
 
 const MongoDB = require("../../index.js");
-const { ProductSchema } = require("../../../Models/mongoModels.js")
+const { ProductSchema } = require("../../../Models/mongoModels.js");
+const { logger } = require("../../../Utils/logger.js");
 
 class ProductsDao extends MongoDB {
     //Edita un registro por su id.
@@ -11,7 +12,7 @@ class ProductsDao extends MongoDB {
             
             await this.model.updateOne({id: id}, {$set: record, timestamp});
         } catch(err) {
-            console.log("No se pudo editar el producto", err);
+            logger.error("No se pudo editar el producto", {err});
             return "No se pudo editar el producto";
         }
     }

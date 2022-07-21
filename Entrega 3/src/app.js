@@ -16,6 +16,7 @@ app.engine("handlebars", handlebars.engine());
 app.set("views", __dirname+"/Views");
 app.set("view engine", "handlebars");
 
+//Helper de handlebars que concatena rutas
 hbs.registerHelper("concat", function(pathInit, pathEnd) {
     return pathInit + pathEnd;
 });

@@ -28,6 +28,7 @@ const ProductSchema = new mongoose.Schema({
 
 const CartsSchema = new mongoose.Schema({
     id: {type: Number, required: true},
+    user: {type: Number, required: true},
     products: {type: Array, required: true},
     createdAt: {type: String, required: true}
 })

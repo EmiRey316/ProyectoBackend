@@ -1,6 +1,7 @@
 const { createTransport } = require("nodemailer");
 
 const config = require("../Config");
+const logger = require("./logger.js");
 
 
 class Mailer {
@@ -47,9 +48,9 @@ class Mailer {
     async sendMail() {
         try {
             const info = await this.transporter.sendMail(this.mailOptions)
-            console.log(info)
+            logger.info(info)
          } catch (error) {
-            console.log(err)
+            logger.error("Error al enviar mail de registro", error)
          }
     }
 }

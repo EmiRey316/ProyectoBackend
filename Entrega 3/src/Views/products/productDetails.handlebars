@@ -9,49 +9,41 @@
         </div>
 
         <div id="itemDetails">
-            <h2>{{product.title}}</h2>
+            <span id="productId" hidden>{{productId}}</span><h2>{{product.title}}</h2>
             <p>Descripción: {{product.description}}</p>
             {{#if product.stock}}
-                <p>Stock: <span style="background-color: red;">Sin stock</span></p>
-            {{else}}
                 <p>Stock: {{product.stock}}</p>
+            {{else}}
+                <p>Stock: <span style="background-color: red;">Sin stock</span></p>
             {{/if}}
             <p>Precio: USD {{product.price}}</p>
 
-
-        
-        {{!-- <div class="container" style={{display:"flex", justifyContent:"center", marginBottom: 15}}>
-            <div class="row justify-content-center border border-dark rounded p-3">
-                <div class="row p-2">
-                    <!--Botón que resta al contador, se desactiva si la cantidad actual es menor igual a la cantidad inicial-->
-                    <button onClick={() => setCount(count - 1)} class={count<=initial ? "col-2 btn btn-outline-secondary disabled":"col-2 btn btn-outline-dark"}>-</button>
-                    <span class="col-8 text-center">{count}</span>
-                    {/*Botón que resta al contador, se desactiva si la cantidad actual es mayor igual al stock*/}
-                    <button onClick={() => setCount(count + 1)} class={count>=maximum ? "col-2 btn btn-outline-secondary disabled":"col-2 btn btn-outline-dark"}>+</button>
-                </div>
-                <div>
-                    {/*Botón que resta al contador, se desactiva si no hay stock o si la cantidad actual es menor o igual a 0*/}
-                    <button onClick={() => onAdd(count)} class={(maximum<=0 || count<=0) ? "col-12 btn btn-outline-secondary disabled":"col-12 btn btn-outline-dark"}>Agregar al carrito</button>
+            <div class="container" style="display:flex; justifyContent:center; marginBottom: 15">
+                <div class="row justify-content-center border border-dark rounded p-3">
+                    <div class="row p-2">
+                        <!--Botón que resta al contador, se desactiva si la cantidad actual es menor o igual a la cantidad inicial-->
+                        <button type="button" id="minusBtn" class="col-2 btn btn-outline-dark">-</button>
+                        <span id="count" class="col-8 text-center">{{count}}</span>
+                        {{!--Botón que suma al contador, se desactiva si la cantidad actual es mayor o igual al stock--}}
+                        <button type="button" id="plusBtn" class="col-2 btn btn-outline-dark">+</button>
+                    </div>
+                    <div>
+                        {{!--Botón que agrega al carrito, se desactiva si no hay stock o si la cantidad actual es menor o igual a 0--}}
+                        <button type="submit" form="sendToCart" class="col-12 btn btn-outline-dark">Agregar al carrito</button>
+                    </div>
                 </div>
             </div>
-        </div> --}}
 
-            {{!-- {/*Intercambiabilidad que controla que se muestra*/}
-            {onAddClicked ?
-                <div>
-                    {/*Botón para volver al listado y seguir comprando*/}
-                    <Link to="/">
-                        <button class="col-6 btn btn-outline-dark">Seguir comprando</button>
-                    </Link>
-                    {/*Botón que lleva al carrito para finalizar compra*/}
-                    <Link to="/cart">
-                        <button class="col-6 btn btn-outline-dark">Terminar compra</button> 
-                    </Link>
-                </div>
-            :
-                <ItemCount initial={(product.stock === 0) || (maximum === 0) ? 0:1} maximum={maximum} onAdd={handleAdd}/>
-            } --}}
-
+            {{!-- Formulario para enviar el producto al carrito --}}
+            <form id="sendToCart" action="/cart/products" method="post">
+                <input type="hidden" name="id" value={{product.id}}>
+                <input type="hidden" name="quantity" id="quantity" value={{count}}>
+            </form>
+        
         </div>
     </div>
 </div>
+
+
+
+<script src="/js/itemDetails.js"></script>

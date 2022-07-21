@@ -1,0 +1,20 @@
+#cartTable {
+    overflow: hidden;
+}
+
+#cartTable div {
+    padding: 8px;
+}
+
+.productImg {
+    height: 100px;
+    width: auto;
+}
+
+#cartTableHead {
+    background-color: #FFC20E;
+}
+
+#cartTableBody td {
+    padding: 0px;
+}

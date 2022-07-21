@@ -43,10 +43,10 @@ const validateProductId = async(req, res, next) => {
 
 //Middleware de validación de id de carrito correcto.
 const validateCartId = async(req, res, next) => {
-    let cid = req.params.cid;
-    if(!await CartsDao.exist(cid)) return res.status(400).send(`No existe ningún carrito con id ${cid} en el listado`);
+    const user = await req.user;
+    //Si no existe cart para usuario, lo crea vacío.
+    if(!await CartsDao.findByUser(user.id)) CartsDao.save({user: user.id , products: []});
 
-    req.cid = cid
     next();
 }
 

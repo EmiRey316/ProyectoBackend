@@ -7,8 +7,8 @@ const { validateSession, validateCartId, validateProductId } = require("../Middl
 let cartRouter = express.Router();
 cartRouter.post("/", validateSession, cartController.createCart);
 cartRouter.delete("/:cid", validateSession, validateCartId, cartController.deleteCart);
-cartRouter.get("/:cid/products", validateSession, validateCartId, cartController.getCart);
-cartRouter.post("/:cid/products", validateSession, validateCartId, validateProductId, cartController.addProductToCart);
+cartRouter.get("/", validateSession, validateCartId, cartController.getCart);
+cartRouter.post("/products", validateSession, validateCartId, validateProductId, cartController.addProductToCart);
 cartRouter.delete("/:cid/products/:pid", validateSession, validateCartId, cartController.deleteProductFromCart);
 
 

@@ -28,7 +28,9 @@ class Products {
                 title: "Producto" + req.pid,
                 name: user.name.split(" ")[0],
                 avatar: user.avatar,
-                product});    
+                product,
+                count: product.stock > 0 ? 1:0
+            });    
         } catch (error) {
             logger.error("Error al cargar producto", {error})
         }

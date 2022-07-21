@@ -1,1 +1,66 @@
+<link rel="stylesheet" href="/css/cart.css">
+
+
 {{> navbar}}
+
+{{#if productsInCart}}
+    <div class="container">
+        <h1 class="text-center mb-4">Carrito de compras</h1>
+        
+        <table id="cartTable" class="table text-center table-hover align-middle">
+            <thead id="cartTableHead">
+                <tr>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="cartTableBody">
+
+                {{#each productsInCart}}>
+                    <tr>
+                        <td><div>{{this.quantity}}</div></td>
+                        <td><div><img src={{this.product.thumbnail}} alt={{this.product.description}} class="productImg"></img></div></td>
+                        <td><div>{{this.product.title}}</div></td>
+                        <td><div>{{this.product.price}}</div></td>
+                        <td><div class="buttonsCell">
+                            <button class="btn btn-danger">
+                                <img src="/multimedia/deleteIcon.png" alt="Delete button"/>
+                            </button>
+                        </div></td>
+                    </tr>
+                {{/each}}
+
+                {{!-- Última fila de la tabla con el total a pagar, el botón para pagar y para limpiar el carrito --}}
+                <tr>
+                    <td>
+                        <button class="btn btn-danger">Limpiar carrito</button>
+                    </td>
+                    <td></td>
+                    <td><div><strong>Total a Pagar</strong></div></td>
+                    <td><div><strong>{{totalPayment}}</strong></div></td>
+                    <td><div class="buttonsCell">
+                        <Link to="/Checkout">
+                            <button type="button" class="btn btn-success">Pagar</button>
+                        </Link>
+                    </div></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+{{else}}
+
+    <div class="text-center mb-4">
+        <h2>Carrito vacío</h2>
+        <p>Agregue productos desde el catálogo para verlos aquí</p>
+        <a href="/products">
+            <button class="btn btn-secondary">Catálogo</button>
+        </a>
+    </div>
+
+{{/if}}
