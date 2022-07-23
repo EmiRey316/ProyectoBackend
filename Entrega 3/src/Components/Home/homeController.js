@@ -5,7 +5,8 @@ class Home {
         res.render("home", {
             title: "Centro de mensajes",
             name: user.name.split(" ")[0],
-            avatar: user.avatar
+            avatar: user.avatar,
+            role: user.role,
         })
     }
 }

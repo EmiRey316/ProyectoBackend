@@ -3,7 +3,7 @@ class Logout {
         const user = await req.user;
         req.session.destroy(err => {
             if(!err) {
-                return res.render("./session/logout", {title: "Logout", user: user.alias});
+                return res.render("./session/logout", {title: "Logout", user: user.name});
             }
 
             res.send({status: "Logout ERROR",

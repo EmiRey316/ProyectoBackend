@@ -12,6 +12,7 @@ class Products {
                 title: "Productos",
                 name: user.name.split(" ")[0],
                 avatar: user.avatar,
+                role: user.role,
                 productsList});
         } catch (error) {
             logger.error("Error al cargar productos", {error});
@@ -28,6 +29,7 @@ class Products {
                 title: "Producto" + req.pid,
                 name: user.name.split(" ")[0],
                 avatar: user.avatar,
+                role: user.role,
                 product,
                 count: product.stock > 0 ? 1:0
             });    
@@ -43,6 +45,7 @@ class Products {
             title: "Nuevo Producto",
             name: user.name.split(" ")[0],
             avatar: user.avatar,
+            role: user.role,
         })
     }
 
@@ -51,13 +54,7 @@ class Products {
     async createProduct(req, res) {
         let product = req.body;
         const id = await ProductsDao.save(product);
-        const user = req.user;
-        res.render("/products/productDetails", {
-            title: "Producto" + id,
-            name: user.name,
-            avatar: user.avatar,
-            product
-        })
+        res.redirect("/products/"+id);
     }
 
 

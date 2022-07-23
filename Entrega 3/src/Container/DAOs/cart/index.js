@@ -55,6 +55,14 @@ class CartsDao extends MongoDB {
             return "No se pudo eliminar el producto del carrito";
         }
     }
+
+    clearCart = async(userId) => {
+        try {
+            await this.model.updateOne({user: userId}, {$set: {products: []}});    
+        } catch (error) {
+            logger.error("No se pudo limpiar el carrito", error)
+        }
+    }
 }
 
 

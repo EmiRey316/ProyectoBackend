@@ -826,3 +826,57 @@
     '    at processTicksAndRejections (node:internal/process/task_queues:96:5)',
   timestamp: '2022-07-21T05:54:37.895Z'
 }
+{
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined,
+  level: 'error',
+  message: 'Error al enviar mensaje Twilio could not find a Channel with the specified From address',
+  stack: 'Error: Twilio could not find a Channel with the specified From address\n' +
+    '    at success (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\twilio\\lib\\base\\Version.js:135:15)\n' +
+    '    at Promise_then_fulfilled (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:766:44)\n' +
+    '    at Promise_done_fulfilled (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:835:31)\n' +
+    '    at Fulfilled_dispatch [as dispatch] (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:1229:9)\n' +
+    '    at Pending_become_eachMessage_task (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:1369:30)\n' +
+    '    at RawTask.call (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\asap\\asap.js:40:19)\n' +
+    '    at flush (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\asap\\raw.js:50:29)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:78:11)',
+  timestamp: '2022-07-23T01:01:16.780Z'
+}
+{
+  status: 400,
+  code: 21211,
+  moreInfo: 'https://www.twilio.com/docs/errors/21211',
+  details: undefined,
+  level: 'error',
+  message: "Error al enviar mensaje The 'To' number +598578789 is not a valid phone number.",
+  stack: "Error: The 'To' number +598578789 is not a valid phone number.\n" +
+    '    at success (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\twilio\\lib\\base\\Version.js:135:15)\n' +
+    '    at Promise_then_fulfilled (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:766:44)\n' +
+    '    at Promise_done_fulfilled (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:835:31)\n' +
+    '    at Fulfilled_dispatch [as dispatch] (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:1229:9)\n' +
+    '    at Pending_become_eachMessage_task (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:1369:30)\n' +
+    '    at RawTask.call (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\asap\\asap.js:40:19)\n' +
+    '    at flush (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\asap\\raw.js:50:29)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:78:11)',
+  timestamp: '2022-07-23T01:01:16.793Z'
+}
+{
+  status: 400,
+  code: 63007,
+  moreInfo: 'https://www.twilio.com/docs/errors/63007',
+  details: undefined,
+  level: 'error',
+  message: 'Error al enviar mensaje Twilio could not find a Channel with the specified From address',
+  stack: 'Error: Twilio could not find a Channel with the specified From address\n' +
+    '    at success (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\twilio\\lib\\base\\Version.js:135:15)\n' +
+    '    at Promise_then_fulfilled (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:766:44)\n' +
+    '    at Promise_done_fulfilled (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:835:31)\n' +
+    '    at Fulfilled_dispatch [as dispatch] (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:1229:9)\n' +
+    '    at Pending_become_eachMessage_task (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\q\\q.js:1369:30)\n' +
+    '    at RawTask.call (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\asap\\asap.js:40:19)\n' +
+    '    at flush (C:\\Users\\erey\\OneDrive\\Desktop\\Coder House\\Backend\\Proyecto\\Entrega 3\\node_modules\\asap\\raw.js:50:29)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:78:11)',
+  timestamp: '2022-07-23T19:24:45.719Z'
+}

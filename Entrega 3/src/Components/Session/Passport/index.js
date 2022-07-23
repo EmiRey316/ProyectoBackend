@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 const usersList = require("../../../Container/DAOs/users");
 const { logger } = require("../../../Utils/logger");
-const Mailer = require("../../../Utils/mailer.js");
+const RegistrationMailer = require("../../../Utils/Mailer/registrationMailer.js");
 const config = require("../../../Config");
 
 
@@ -36,8 +36,8 @@ passport.use("signup", new LocalStrategy({
             user.role = "admin";
             
             //Envio mail de nuevo registro, antes de agregegar avatar.
-            const registrationMail = new Mailer(config.MAIL, user);
-            registrationMail.sendMail();
+            const registrationMail = new RegistrationMailer(config.MAIL, user);
+            registrationMail.sendRegistrationMail();
 
             //Agrego el nombre del avatar al usuario.
             const file = req.file;

@@ -18,7 +18,9 @@
                         <a class="nav-link text-black dropdown-troggle align-middle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/products">Listado</a></li>
-                            <li><a class="dropdown-item" href="/products/create">Crear</a></li>
+                            {{#if (isAdmin role)}}
+                                <li><a class="dropdown-item" href="/products/create">Crear</a></li>
+                            {{/if}}
                         </ul>
                     </li>
                     <li class="nav-item col-4">

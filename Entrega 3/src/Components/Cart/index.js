@@ -6,10 +6,11 @@ const { validateSession, validateCartId, validateProductId } = require("../Middl
 
 let cartRouter = express.Router();
 cartRouter.post("/", validateSession, cartController.createCart);
-cartRouter.delete("/:cid", validateSession, validateCartId, cartController.deleteCart);
+cartRouter.delete("/", validateSession, validateCartId, cartController.clearCart);
 cartRouter.get("/", validateSession, validateCartId, cartController.getCart);
 cartRouter.post("/products", validateSession, validateCartId, validateProductId, cartController.addProductToCart);
-cartRouter.delete("/:cid/products/:pid", validateSession, validateCartId, cartController.deleteProductFromCart);
+cartRouter.post("/payment", validateSession, validateCartId, cartController.paymentConfirm);
+cartRouter.delete("/products/:pid", validateSession, validateCartId, cartController.deleteProductFromCart);
 
 
 

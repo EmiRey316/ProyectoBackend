@@ -6,8 +6,10 @@ class UserInfo {
             title: "Perfil de usuario",
             username: user.username,
             name: user.name,
+            role: user.role,
             birthday: user.birthday,
             address: user.address,
+            countryCode: user.countryCode,
             phone: user.phone,
             avatar: user.avatar
         }

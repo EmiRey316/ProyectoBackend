@@ -26,7 +26,10 @@ const config = {
     MONGO_ATLAS_URL: process.env.MONGO_ATLAS_URL,
     SECRET: process.env.SECRET,
     MAIL: process.env.MAIL,
-    MAIL_PASS: process.env.MAIL_PASS
+    MAIL_PASS: process.env.MAIL_PASS,
+    TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
+    TWILIO_ACCOUNT_TOKEN: process.env.TWILIO_ACCOUNT_TOKEN,
+    VERIFIED_PHONE: process.env.VERIFIED_PHONE
 }
 
 

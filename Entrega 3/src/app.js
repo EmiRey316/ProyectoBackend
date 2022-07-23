@@ -21,6 +21,14 @@ hbs.registerHelper("concat", function(pathInit, pathEnd) {
     return pathInit + pathEnd;
 });
 
+hbs.registerHelper("isAdmin", function(userRole) {
+    return userRole == "admin";
+})
+
+hbs.registerHelper("productTotal", function(price, quantity) {
+    return price * quantity;
+})
+
 
 
 // ////////////////////////////////////////////

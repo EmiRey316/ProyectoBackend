@@ -20,14 +20,14 @@
 
             <tbody id="cartTableBody">
 
-                {{#each productsInCart}}>
+                {{#each productsInCart}}
                     <tr>
                         <td><div>{{this.quantity}}</div></td>
                         <td><div><img src={{this.product.thumbnail}} alt={{this.product.description}} class="productImg"></img></div></td>
                         <td><div>{{this.product.title}}</div></td>
-                        <td><div>{{this.product.price}}</div></td>
+                        <td><div>{{productTotal this.product.price this.quantity}}</div></td>
                         <td><div class="buttonsCell">
-                            <button class="btn btn-danger">
+                            <button id="deleteProductBtn" class="btn btn-danger">
                                 <img src="/multimedia/deleteIcon.png" alt="Delete button"/>
                             </button>
                         </div></td>
@@ -37,14 +37,14 @@
                 {{!-- Última fila de la tabla con el total a pagar, el botón para pagar y para limpiar el carrito --}}
                 <tr>
                     <td>
-                        <button class="btn btn-danger">Limpiar carrito</button>
+                        <button id="clearCartBtn" class="btn btn-danger">Limpiar carrito</button>
                     </td>
                     <td></td>
                     <td><div><strong>Total a Pagar</strong></div></td>
                     <td><div><strong>{{totalPayment}}</strong></div></td>
                     <td><div class="buttonsCell">
                         <Link to="/Checkout">
-                            <button type="button" class="btn btn-success">Pagar</button>
+                            <button type="button" id="paymentBtn" class="btn btn-success">Pagar</button>
                         </Link>
                     </div></td>
                 </tr>
@@ -64,3 +64,7 @@
     </div>
 
 {{/if}}
+
+
+
+<script src="/js/cart.js"></script>

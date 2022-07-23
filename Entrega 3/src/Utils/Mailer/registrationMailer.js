@@ -1,10 +1,10 @@
 const { createTransport } = require("nodemailer");
 
-const config = require("../Config");
-const logger = require("./logger.js");
+const config = require("../../Config");
+const logger = require("../logger.js");
 
 
-class Mailer {
+class RegistrationMailer {
     constructor(destinationMail, user) {
         this.transporter = createTransport({
             service: 'gmail',
@@ -15,7 +15,7 @@ class Mailer {
             }
         }),
 
-        this.mailOptions = {
+        this.registrationMail = {
             from: "Servidor Proyecto Backend",
             to: destinationMail,
             subject: "Nuevo Registro",
@@ -42,18 +42,19 @@ class Mailer {
                             <td>${user.birthday}</td>
                         </tr>
                     </table>`
-         }
+        }
     }
 
-    async sendMail() {
+
+    async sendRegistrationMail() {
         try {
-            const info = await this.transporter.sendMail(this.mailOptions)
-            logger.info(info)
-         } catch (error) {
+            const info = await this.transporter.sendMail(this.registrationMail);
+            logger.info(info);
+        } catch (error) {
             logger.error("Error al enviar mail de registro", error)
-         }
+        }
     }
 }
 
 
-module.exports = Mailer;
+module.exports = RegistrationMailer;

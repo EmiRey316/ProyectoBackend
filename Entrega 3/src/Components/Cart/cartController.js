@@ -2,6 +2,11 @@ const CartsDao = require("../../Container/DAOs/cart");
 const ProductsDao = require("../../Container/DAOs/products");
 
 const { logger } = require("../../Utils/logger.js");
+const PaymentMailer = require("../../Utils/Mailer/paymentMailer.js");
+const { paymentMessage, paymentWsp } = require("../../Utils/messaging.js");
+const config = require("../../Config");
+
+
 
 class Cart {
     //Crear cart para el usuario en específico
@@ -15,12 +20,13 @@ class Cart {
     }
 
     //Vacía un carrito y lo elimina.
-    async deleteCart(req, res) {
+    async clearCart(req, res) {
         try {
-            await CartsDao.deleteRecord(req.cid);
-            res.send(`Carrito con id ${req.cid} eliminado correctamente`);
+            const user = await req.user;
+            await CartsDao.clearCart(user.id);
+            res.send("");
         } catch (error) {
-            logger.error("Error al eliminar carrito", {error})
+            logger.error("Error al vaciar carrito", {error})
         }
     }
 
@@ -37,8 +43,9 @@ class Cart {
 
             res.render("cart", {
                 title: "Carrito",
-                name: user.name,
+                name: user.name.split(" ")[0],
                 avatar: user.avatar,
+                role: user.role,
                 productsInCart: cart.products,
                 totalPayment
             });
@@ -64,6 +71,28 @@ class Cart {
             res.redirect("/cart")
         } catch (error) {
             logger.error("Error al agregar producto al carrito", {error})
+        }
+    }
+
+
+    async paymentConfirm(req, res) {
+        try {
+            const user = await req.user;
+            const cart = await CartsDao.findByUser(user.id);
+
+            const paymentMail = new PaymentMailer(config.MAIL, user, cart);
+            paymentMail.sendPaymentMail();
+
+            const fullPhone = user.countryCode + user.phone;
+            paymentMessage(fullPhone);
+
+            paymentWsp(user);
+
+            await CartsDao.clearCart(user.id);
+
+            res.send("Ok");
+        } catch (error) {
+            logger.error("No se pudo completar el pago del carrito", error)
         }
     }
 
