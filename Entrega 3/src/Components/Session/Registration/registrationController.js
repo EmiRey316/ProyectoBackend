@@ -1,8 +1,9 @@
-const usersList = require("../../../Container/DAOs/users")
+const CountryCodesDao = require("../../../Container/DAOs/countryCodes");
 
 class Registration {
-    get(req, res) {
-        res.render("./session/registration", {title: "Registro"})
+    async get(req, res) {
+        const countryCodes = await CountryCodesDao.findCodes();
+        res.render("./session/registration", {title: "Registro", countryCodes});
     }
 
     fail(req, res) {

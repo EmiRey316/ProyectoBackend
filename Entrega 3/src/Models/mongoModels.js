@@ -34,8 +34,18 @@ const CartsSchema = new mongoose.Schema({
 })
 
 
+const CountryCodesSchema = new mongoose.Schema({
+    id: {type: Number, required: true},
+    countryAbbr: {type: String, required: true},
+    country: {type: String, required: true},
+    code: {type: String, required: true}
+})
+
+
+
 module.exports = {
     UserSchema,
     ProductSchema,
-    CartsSchema
+    CartsSchema,
+    CountryCodesSchema
 };

@@ -12,7 +12,7 @@
             <span id="productId" hidden>{{productId}}</span><h2>{{product.title}}</h2>
             <p>Descripción: {{product.description}}</p>
             {{#if product.stock}}
-                <p>Stock: {{product.stock}}</p>
+                <p>Stock: <span id="stock">{{product.stock}}</span></p>
             {{else}}
                 <p>Stock: <span style="background-color: red;">Sin stock</span></p>
             {{/if}}
@@ -22,7 +22,7 @@
                 <div class="row justify-content-center border border-dark rounded p-3">
                     <div class="row p-2">
                         <!--Botón que resta al contador, se desactiva si la cantidad actual es menor o igual a la cantidad inicial-->
-                        <button type="button" id="minusBtn" class="col-2 btn btn-outline-dark">-</button>
+                        <button type="button" id="minusBtn" class="col-2 btn btn-outline-dark" disabled>-</button>
                         <span id="count" class="col-8 text-center">{{count}}</span>
                         {{!--Botón que suma al contador, se desactiva si la cantidad actual es mayor o igual al stock--}}
                         <button type="button" id="plusBtn" class="col-2 btn btn-outline-dark">+</button>
